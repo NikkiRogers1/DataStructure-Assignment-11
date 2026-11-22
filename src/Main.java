@@ -3,17 +3,17 @@
 public class Main {
     public static void main(String[] args) {
 
-        Sort sort = new Sort();
+        Sorts sort = new Sorts();
 
         sort.initValues();
         sort.printValues();
 
         System.out.println(sort.isSorted());
-
-        sort.swap(4, 1);
+        
+        sort.selectionSort(sort.value);
         
         sort.printValues();
-       
+       System.out.println(sort.isSorted());
     }
 }
     
