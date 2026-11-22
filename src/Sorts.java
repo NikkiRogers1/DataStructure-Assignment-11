@@ -83,4 +83,50 @@ public class Sorts {
         }
 
     }
+
+    public static void mergeSort(int[] array, int first, int last, int[] tempArray){
+        if( first == last){
+          return;
+        }
+           int middle = (first + last) / 2;
+          mergeSort(array, first, middle, tempArray);
+          mergeSort(array, middle +1, last, tempArray);
+
+          int leftIndex = first;
+          int rightIndex = middle + 1;
+          int tempIndex = first;
+
+          while(leftIndex <= middle && rightIndex <= last){
+            if(array[leftIndex] <= array[rightIndex]) {
+               tempArray[tempIndex] = array[leftIndex];
+               leftIndex++;
+               tempIndex++;
+            
+            }
+            else{
+                tempArray[tempIndex] = array[rightIndex];
+                rightIndex++;
+                tempIndex++;
+
+            }
+
+          }
+
+          while(rightIndex <= last){
+            tempArray[tempIndex] = array[rightIndex];
+            rightIndex++;
+            tempIndex++;
+
+          }
+          while(leftIndex <= middle){
+            tempArray[tempIndex] = array[leftIndex];
+            leftIndex++;
+            tempIndex++;
+          }
+
+          for (int i = first; i <= last; i++){
+            array[i] = tempArray[i];
+
+          }
+    }
 }
