@@ -12,10 +12,15 @@ public class Sorts {
     // Creates a Random object to generate random numbers.
     Random rand = new Random();
 
+    public Sorts(int size) {
+        values=size;
+        value = new int[size];
+    }
+
     // Fills the array with random integers between 0 and 1000.
     public void initValues() {
 
-        for (int index = 0; index < values; index++) {
+        for (int index = 0; index < value.length; index++) {
             value[index] = rand.nextInt(1001);
         }
     }
@@ -25,7 +30,7 @@ public class Sorts {
     // Returns true if the array is sorted.
     public boolean isSorted() {
 
-        for (int index = 0; index < values - 1; index++) {
+        for (int index = 0; index < value.length - 1; index++) {
 
             if (value[index] > value[index + 1]) {
                 return false;
